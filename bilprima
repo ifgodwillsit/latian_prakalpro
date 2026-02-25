@@ -1,0 +1,19 @@
+Program bilanganFaktorial
+
+Deklarasi
+int angka, i, hasil
+
+Deskripsi
+START
+INPUT angka
+SET i = 1
+SET hasil = 1
+
+WHILE i <= angka DO
+    hasil = hasil * i
+    i = i + 1
+END WHILE
+
+PRINT hasil
+END
+
