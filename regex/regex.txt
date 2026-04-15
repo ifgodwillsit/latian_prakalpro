@@ -1,0 +1,90 @@
+syntaxnyah:
+findall mengembalikan semua string yang sesuai pola (matches)       re.findall(r,r ini supaya kode contoh \b bisa dipake, bukan buat backspace "yg mo dicari" "batas(opsional)", variabel)
+search mengembalikan string yang sesuai pola (match)        re.search(r"kode", variabel)
+split memecah string sesuai pola        re.split("kriteria pemecahan", variabel)
+sub mengganti string sesuai dengan pola yang cocok      re.sub("yg mo dituker" "yg ditukar", variabel)
+
+
+
+match object has properties and methods used to retrieve information about the search, and the result:
+
+variabel.span() returns a tuple containing the start-, and end positions of the match. in
+variabel.string returns the string passed into the function
+variabel.group() returns the part of the string where there was a match
+
+match object dipake abis re.search, contoh
+x = "I live in Spain"
+y = re.search(r"\bS\w+", x)
+print(x.span()) atau print(x.group)
+
+
+
+Kode,Nama,Penjelasan,Contoh Kecocokan:
+\d,Digit, Angka dari 0 sampai 9
+\D,Non-Digit, karakter apa saja kecuali angka
+\w,Word,"Huruf (A-Z, a-z), angka (0-9), dan _
+\W,Non-Word,"Apa saja kecuali huruf, angka, dan _
+\s, Whitespace, Segala jenis spasi, tab, enter
+\S,Non-Space,Apa saja kecuali spasi, tab, enter
+\A, awal kalimat
+\Z, akhir kalimat
+
+
+
+Anchors & Boundaries (Penanda Posisi)
+Karakter ini tidak mencocokkan teks, melainkan posisi teks tersebut berada.
+^ (Caret): Menandakan awal baris atau string.
+
+Contoh: ^Saya hanya akan cocok jika "Saya" ada di paling depan kalimat.
+
+$ (Dollar): Menandakan akhir baris atau string.
+
+Contoh: makan$ hanya cocok jika "makan" adalah kata terakhir.
+
+\b (Boundary): Menandakan batas kata (awal atau akhir sebuah kata).
+
+Contoh: \bmata\b tidak akan mengambil kata "permata".
+
+\B (Non-Boundary): Kebalikan dari \b. Mencocokkan posisi yang bukan batas kata.
+
+
+
+Quantifiers (Penentu Jumlah)
+Digunakan setelah karakter untuk menentukan berapa kali karakter tersebut harus muncul.
+
+* (Asterisk): Muncul 0 kali atau lebih.
+
++ (Plus): Muncul 1 kali atau lebih (harus ada minimal satu).
+
+? (Question Mark): Muncul 0 atau 1 kali (opsional).
+
+{n}: Muncul tepat n kali. (Contoh: \d{3} cari 3 angka).
+
+{n,}: Muncul minimal n kali.
+
+{n,m}: Muncul antara n sampai m kali.
+
+
+
+Sets & Groups (Pengelompokan)
+Digunakan untuk menentukan pilihan karakter atau mengelompokkan bagian tertentu. HIMPUNAN
+
+[ ] (Character Set): Mencari salah satu karakter di dalam kurung.
+
+Contoh: [abc] mencari 'a', 'b', atau 'c'.
+
+[^ ] (Negated Set): Mencari apa saja kecuali karakter di dalam kurung.
+
+Contoh: [^0-9] mencari apa saja selain angka.
+
+| (OR): Mencari pilihan pola A atau pola B.
+
+Contoh: makan|minum mencari salah satu dari keduanya.
+
+( ) (Group): Mengelompokkan pola agar bisa diberikan quantifier atau diambil hasilnya (seperti saat kita membalik nama).
+Karakter Khusus Lainnya
+. (Dot): Wildcard untuk karakter apa pun kecuali baris baru.
+
+\ (Escape): Digunakan jika kamu ingin mencari karakter yang sebenarnya punya arti di Regex.
+
+Contoh: Untuk mencari titik asli, gunakan \.. Untuk mencari tanda tanya asli, gunakan \?.

@@ -1,0 +1,11 @@
+capitalize() untuk mengubah string menjadi huruf besar string.capitalize()
+count() menghitung jumlah substring yang muncul dari sebuah string string.count()
+endswith() mengetahui apakah suatu string diakhiri dengan string yang dinputkan string.endswith()
+startswith() mengetahui apakah suatu string diawali dengan string yang dinputkan string.startswith()
+find() mengembalikan indeks pertama string jika ditemukan string yang dicari string.find()
+islower() dan isupper() mengembalikan True jika string adalah huruf
+kecil / huruf besar string.islower() dan string.isupper()
+isdigit() mengembalikan True jika string adalah digit
+(angka) string.isdigit()
+strip() menghapus semua whitespace yang ada di depan dan di akhir string string.strip()
+split() memecah string menjadi token-token berdasarkan pemisah, misalnya berdasarkan spasi string.split()
