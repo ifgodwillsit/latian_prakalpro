@@ -81,4 +81,17 @@ if __name__ == "__main__":
 
 
 
-#
+#ngecek kesamaan matriks keknya
+def check(a, b):
+    n = len(a)
+    # Flip columns where matrices differ in the first row
+    for j in range(n):
+        if (a[0][j] != b[0][j]):
+            for i in range(n):
+                a[i][j] ^= 1
+    # Verify remaining rows can be fixed by single row flips
+    for i in range(1, n):
+        for j in range(1, n):
+            if (a[i][j] ^ b[i][j]) != (a[0][j] ^ b[0][j]):
+                return False
+    return True
