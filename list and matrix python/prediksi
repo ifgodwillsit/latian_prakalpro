@@ -1,0 +1,9 @@
+import re
+def cekHuruf(inputan):
+    batuan = re.findall("\w", inputan)
+    cek = [ord(x) for x in batuan]
+    for i in range(len(cek) - 1):
+        if cek[i + 1] - cek [i] == 2:
+            print(chr(int((cek[i] + cek[i+1])/2)))
+batuBatu = input()
+cekHuruf(batuBatu)
