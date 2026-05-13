@@ -1,0 +1,16 @@
+Segitiga Pascal adalah pola angka di mana setiap angka adalah hasil penjumlahan dua angka di atasnya. Baris pertama selalu (1,), dan setiap ujung baris selalu bernilai 1. Tugasmu membangun segitiga ini sepenuhnya menggunakan tuple.
+
+Task — fungsi segitiga_pascal(n)
+1. Jika n <= 0, kembalikan string "Input tidak valid."
+
+2. Bangun segitiga Pascal sebanyak n baris.
+
+3. Setiap baris adalah sebuah tuple. Aturan pembentukan baris:
+baris[0] = 1 (selalu) baris[-1] = 1 (selalu) baris[i] = baris_sebelumnya[i-1] + baris_sebelumnya[i] (tengah)
+
+4. Kembalikan sebuah tuple besar yang berisi semua tuple baris — tuple of tuples.
+
+5. Sertakan juga jumlah elemen unik di seluruh segitiga sebagai elemen terakhir dari tuple hasil.
+Contoh: angka 1 muncul berkali-kali tapi dihitung sekali saja.
+
+Format output: (baris_0, baris_1, ..., baris_n-1, jumlah_unik)
