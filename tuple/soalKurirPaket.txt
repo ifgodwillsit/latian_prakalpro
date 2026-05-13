@@ -1,0 +1,29 @@
+Overview
+Sebuah perusahaan logistik mencatat semua transaksi pengiriman dalam bentuk list of tuples:
+(id_kurir, nama_kurir, kota_tujuan, berat_kg, status)
+
+status bisa berupa: "terkirim", "gagal", atau "proses"
+Satu kurir bisa punya banyak pengiriman
+Satu kota bisa dilayani banyak kurir
+
+
+Task — fungsi rekap_kurir(data)
+
+1. Kelompokkan semua pengiriman berdasarkan id_kurir.
+
+2. Hitung total berat semua paket yang berstatus "terkirim" milik kurir tersebut (float, 2 desimal). Jika tidak ada yang terkirim, totalnya 0.0.
+
+3. Hitung tingkat keberhasilan kurir = jumlah "terkirim" dibagi total semua pengiriman (semua status), dalam persen, dibulatkan 2 desimal. Contoh: 3 terkirim dari 4 pengiriman → 75.0.
+
+4. Tentukan level kurir berdasarkan tingkat keberhasilan:
+Tingkat Keberhasilan    Level
+≥ 90%                   Platinum
+70 – 89%                Gold
+50 – 69%                Silver
+< 50%                   Bronze
+
+Temukan kota_favorit: kota tujuan yang paling sering muncul di pengiriman kurir tersebut (semua status dihitung). Jika ada frekuensi sama, ambil yang pertama muncul di input.
+Kembalikan tuple besar berisi tuple per kurir dengan format:
+(id_kurir, nama_kurir, total_berat_terkirim, tingkat_keberhasilan, level, kota_favorit)
+Urutan: urutkan berdasarkan tingkat_keberhasilan dari tertinggi ke terendah. Jika sama, urutkan id_kurir secara ascending (A→Z).
+Jika data kosong, kembalikan string: "Tidak ada data pengiriman."

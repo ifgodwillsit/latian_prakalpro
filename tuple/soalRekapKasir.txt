@@ -1,0 +1,26 @@
+Overview
+Sebuah toko mencatat semua transaksi penjualan dalam bentuk list of tuples:
+(id_kasir, nama_kasir, kategori_produk, jumlah_item, harga_satuan)
+
+Satu kasir bisa melayani banyak transaksi
+Satu kategori produk bisa dijual oleh banyak kasir
+
+
+Task — fungsi rekap_kasir(data)
+
+1. Kelompokkan semua transaksi berdasarkan id_kasir.
+2. Hitung total pendapatan tiap kasir = jumlah dari jumlah_item × harga_satuan semua transaksinya (float, 2 desimal).
+3. Hitung rata-rata transaksi = total pendapatan dibagi jumlah transaksi kasir tersebut (float, 2 desimal).
+4. Tentukan kategori_terlaris: kategori produk dengan total item terjual terbanyak oleh kasir tersebut. Jika ada jumlah sama, ambil yang pertama muncul di input.
+5. Tentukan bonus kasir berdasarkan total pendapatan:
+
+Total Pendapatan        Bonus
+≥ 5.000.000             500.000
+3.000.000 – 4.999.999   300.000
+1.000.000 – 2.999.999   100.000
+< 1.000.0000            0
+
+Kembalikan tuple besar berisi tuple per kasir dengan format:
+(id_kasir, nama_kasir, total_pendapatan, rata_rata_transaksi, kategori_terlaris, bonus)
+Urutan: urutkan berdasarkan total_pendapatan dari tertinggi ke terendah. Jika sama, urutkan id_kasir secara ascending (A→Z).
+Jika data kosong, kembalikan string: "Tidak ada data transaksi."

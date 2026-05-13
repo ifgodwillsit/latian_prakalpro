@@ -1,0 +1,23 @@
+Overview
+Seorang dosen mencatat hasil ujian mahasiswa dalam bentuk list of tuples: (nim, nama, mata_kuliah, nilai). Satu mahasiswa bisa punya banyak mata kuliah, dan satu mata kuliah bisa diambil banyak mahasiswa. Tugasmu adalah membangun rekap nilai per mahasiswa sesuai aturan akademik yang berlaku.
+
+Task — fungsi rekap_nilai(data)
+1. Kelompokkan semua nilai berdasarkan NIM mahasiswa.
+
+2. Hitung IPK tiap mahasiswa — rata-rata dari semua nilai mata kuliahnya (float, 2 desimal).
+
+3. Tentukan predikat berdasarkan IPK:
+IPK	Predikat
+≥ 85	Cumlaude
+70 – 84	Memuaskan
+55 – 69	Cukup
+< 55	Perlu Bimbingan
+
+4. Tandai mata kuliah dengan nilai tertinggi milik mahasiswa tersebut sebagai mata_kuliah_terbaik. Jika ada nilai sama, ambil yang pertama muncul di input.
+
+5. Kembalikan tuple besar berisi tuple per mahasiswa dengan format:
+(nim, nama, ipk, predikat, mata_kuliah_terbaik)
+
+6. Urutan: urutkan berdasarkan IPK dari tertinggi ke terendah. Jika IPK sama, urutkan NIM secara ascending (A→Z).
+
+7. Jika data kosong, kembalikan string: "Tidak ada data nilai."

@@ -1,0 +1,18 @@
+Overview
+Sebuah toko kelontong mencatat transaksi harian dalam bentuk list of tuples: (nama_barang, jumlah, harga_satuan, kategori). Satu barang bisa muncul berkali-kali di hari yang sama. Tugasmu adalah merangkum transaksi tersebut menjadi laporan yang informatif — dengan beberapa aturan bisnis yang harus dipenuhi.
+
+Task — fungsi buat_laporan(transaksi)
+1. Gabungkan barang yang sama (nama identik, case-insensitive) — jumlahkan kuantitas & gunakan harga satuan terakhir yang tercatat.
+
+2. Hitung subtotal tiap barang:
+subtotal = jumlah × harga_satuan
+
+3. Terapkan diskon progresif berdasarkan total kuantitas barang tersebut:
+≥ 10 unit → diskon 15%  |  ≥ 5 unit → diskon 10%  |  < 5 → tanpa diskon
+
+4. Kembalikan tuple besar berisi tuple-tuple dengan format:
+(nama_barang, kategori, total_bayar) di mana total_bayar sudah dipotong diskon dan dibulatkan ke integer.
+
+5. Urutan: urutkan berdasarkan kategori (A–Z), lalu jika sama kategori urutkan total_bayar dari terbesar.
+
+6. Jika transaksi kosong, kembalikan string: "Tidak ada transaksi hari ini."

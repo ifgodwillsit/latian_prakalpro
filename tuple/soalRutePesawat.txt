@@ -1,0 +1,25 @@
+Overview
+Sebuah maskapai memiliki log penerbangan harian dalam bentuk list of tuples: (kode_penerbangan, asal, tujuan, jam_berangkat, jam_tiba, jumlah_penumpang, kapasitas). Format jam menggunakan string "HH:MM". Satu rute (asal → tujuan) bisa dilayani beberapa penerbangan berbeda. Tugasmu adalah menganalisis performa tiap rute.
+
+Task — fungsi analisis_rute(log)
+1. Jika log kosong, kembalikan string "Tidak ada data penerbangan."
+
+2. Kelompokkan penerbangan berdasarkan rute (asal, tujuan) — case-insensitive, simpan dalam title case.
+
+3. Hitung durasi terbang tiap penerbangan dalam menit dari string jam:
+durasi = (jam_tiba - jam_berangkat) dalam menit * Jika jam_tiba < jam_berangkat → penerbangan melewati tengah malam tambahkan 1440 menit (24×60)
+
+4. Hitung load factor tiap penerbangan (persentase kursi terisi, float 1 desimal):
+load_factor = (jumlah_penumpang / kapasitas) × 100
+
+5. Tentukan status tiap rute berdasarkan rata-rata load factor semua penerbangannya:
+Profitable  — rata-rata load factor ≥ 80%
+Break Even  — 60% – 79%
+Rugi  — < 60%
+
+6. Cari penerbangan tercepat di rute tersebut — kode penerbangan dengan durasi terpendek. Jika durasi sama, ambil kode yang lebih kecil secara lexicographic.
+
+7. Kembalikan tuple besar berisi tuple per rute dengan format:
+((asal, tujuan), total_penumpang, avg_load_factor, status, kode_tercepat, durasi_tercepat_menit)
+
+8. Urutan: urutkan berdasarkan avg_load_factor descending. Jika sama, urutkan asal ascending lalu tujuan ascending.
