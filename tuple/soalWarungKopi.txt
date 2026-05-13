@@ -1,0 +1,18 @@
+Overview
+Pak Breww mencatat pesanan dalam bentuk list of tuples: (nama_pelanggan, menu, jumlah, harga_satuan). Satu pelanggan bisa pesan beberapa menu berbeda, dan menu yang sama bisa dipesan berkali-kali. Tugasmu membuat rekap tagihan per pelanggan.
+
+Task — fungsi rekap_tagihan(pesanan)
+1. Jika pesanan kosong, kembalikan string "Warung sepi hari ini."
+
+2. Kelompokkan semua pesanan berdasarkan nama pelanggan (case-insensitive).
+
+3. Hitung total tagihan tiap pelanggan — jumlahkan semua jumlah × harga_satuan dari semua pesanannya.
+total = Σ (jumlah × harga_satuan) untuk semua pesanan pelanggan
+
+4. Beri status pembayaran berdasarkan total tagihan:
+≥ 50.000 → "VIP"  |  ≥ 20.000 → "Reguler"  |  < 20.000 → "Hemat"
+
+5. Kembalikan tuple besar berisi tuple per pelanggan:
+(nama, total_tagihan, status) — nama pakai .title()
+
+6. Urutan: total tagihan terbesar dulu. Kalau sama, nama A→Z.
