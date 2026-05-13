@@ -1,0 +1,7 @@
+Pak Dengklek memiliki N ekor bebek peliharaan. Setiap bebek memiliki nama dan berat badan (dalam gram). Pak Dengklek ingin mengetahui:
+
+1. Bebek terberat — nama dan berat badannya.
+2. Rata-rata berat semua bebek (dibulatkan ke 2 desimal).
+3. Jumlah bebek yang beratnya di atas rata-rata.
+
+Data bebek disimpan sebagai tuple berisi pasangan (nama, berat). Bantulah Pak Dengklek membuat programnya!
