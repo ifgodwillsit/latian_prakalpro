@@ -1,0 +1,7 @@
+koord1 = input().split()
+koord2 = input().split()
+
+deltaY = int(koord1[1]) - int(koord2[1])
+deltaX = int(koord1[0]) - int(koord2[0])
+m = deltaY / deltaX
+print(round(m))
