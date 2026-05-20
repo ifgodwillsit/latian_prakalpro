@@ -1,0 +1,62 @@
+Raka dan Dina sama-sama mengadakan pesta ulang tahun di hari yang sama. Keduanya membuat daftar tamu masing-masing. Karena venue terbatas, mereka perlu menganalisis daftar tamu agar tidak terjadi masalah.
+Bantulah mereka menjawab pertanyaan-pertanyaan berikut:
+
+🤝 KEDUANYA — siapa saja yang diundang oleh Raka maupun Dina sekaligus?
+🎉 SEMUA — siapa saja yang diundang minimal oleh salah satu dari mereka?
+👤 HANYA_RAKA — siapa yang diundang Raka tapi tidak oleh Dina?
+👤 HANYA_DINA — siapa yang diundang Dina tapi tidak oleh Raka?
+🔢 TOTAL — berapa total tamu unik jika kedua pesta digabung?
+✅ CEK nama — apakah orang bernama nama diundang oleh keduanya? Jawab YA atau TIDAK.
+
+Untuk kueri yang menghasilkan daftar nama, cetak nama-nama diurutkan alfabet dipisah spasi. Jika kosong, cetak KOSONG.
+
+Format input
+Baris 1: bilangan bulat A — jumlah tamu Raka.
+
+Baris 2: A nama dipisah spasi — daftar tamu Raka.
+
+Baris 3: bilangan bulat B — jumlah tamu Dina.
+
+Baris 4: B nama dipisah spasi — daftar tamu Dina.
+
+Baris 5: bilangan bulat Q — jumlah kueri.
+
+Q baris berikutnya: salah satu kueri di atas.
+
+Contoh kasus uji
+Input:
+5
+ali budi citra dani eka
+4
+budi citra fani gani
+7
+KEDUANYA
+SEMUA
+HANYA_RAKA
+HANYA_DINA
+TOTAL
+CEK budi
+CEK ali
+
+Output:
+budi citra
+ali budi citra dani eka fani gani
+ali dani eka
+fani gani
+7
+YA
+TIDAK
+
+Trace: Raka = {ali, budi, citra, dani, eka}, Dina = {budi, citra, fani, gani}.
+KEDUANYA → irisan = {budi, citra}.
+SEMUA → gabungan = 7 nama unik.
+HANYA_RAKA → {ali, dani, eka} (ada di Raka, tidak di Dina).
+HANYA_DINA → {fani, gani}.
+CEK budi → ada di keduanya → YA. CEK ali → hanya di Raka → TIDAK.
+
+Batasan
+1 ≤ A, B ≤ 1.000 (jumlah tamu masing-masing)
+1 ≤ Q ≤ 500 (jumlah kueri)
+Nama hanya huruf kecil a–z, panjang 1–15 karakter
+Nama dalam satu daftar dijamin unik (tidak ada duplikat per orang)
+Nama pada kueri CEK dijamin pernah muncul di salah satu daftar

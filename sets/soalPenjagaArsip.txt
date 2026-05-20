@@ -1,0 +1,53 @@
+Kerajaan Algorithmia menyimpan ribuan gulungan manuskrip kuno. Setiap manuskrip memiliki ID unik berupa bilangan bulat, dan dicap dengan satu atau lebih tag kategori (misalnya: "sihir", "sejarah", "ramalan").
+
+
+Kamu adalah Penjaga Arsip yang harus menjawab serangkaian kueri dari Raja. Setiap kueri meminta kamu mencari manuskrip berdasarkan kriteria tag tertentu. Raja ingin tahu:
+
+
+📜 UNION — semua manuskrip yang memiliki setidaknya salah satu dari dua tag yang diberikan.
+🔍 INTERSECT — manuskrip yang memiliki kedua tag yang diberikan sekaligus.
+⚔️ DIFF — manuskrip yang memiliki tag pertama tetapi tidak memiliki tag kedua.
+🌟 EXCLUSIVE — manuskrip yang memiliki tepat satu dari dua tag yang diberikan (symmetric difference).
+👑 RARE — tag mana yang memiliki paling sedikit manuskrip; jika seri, urutkan alfabet dan ambil yang pertama.
+
+Format input & output
+Baris pertama: N M — jumlah manuskrip dan jumlah kueri.
+
+N baris berikutnya: ID tag1 tag2 ... tagK
+
+M baris berikutnya: salah satu dari:
+UNION tagA tagB  |  INTERSECT tagA tagB  |  DIFF tagA tagB  |  EXCLUSIVE tagA tagB  |  RARE
+
+Untuk setiap kueri bertipe set, output satu baris: ID manuskrip diurutkan ascending, dipisah spasi. Jika kosong, cetak KOSONG. Untuk kueri RARE, cetak nama tag tersebut.
+
+Contoh kasus uji
+Input
+6 5
+1 sihir sejarah
+2 sihir ramalan
+3 sejarah ramalan
+4 ramalan
+5 sihir
+6 sejarah sihir ramalan
+UNION sihir ramalan
+INTERSECT sihir sejarah
+DIFF ramalan sihir
+EXCLUSIVE sihir sejarah
+RARE
+
+Output
+1 2 3 4 5 6
+1 6
+3 4
+2 3 5
+ramalan
+
+Penjelasan singkat: UNION sihir|ramalan → semua 6 manuskrip punya setidaknya satu. INTERSECT sihir∩sejarah → {1,6}. DIFF ramalan−sihir → {3,4}. EXCLUSIVE sihir△sejarah → {2,3,5} (punya persis satu dari keduanya). RARE → "ramalan" (4 manuskrip, sama dengan "sihir" 4, dan "sejarah" 3 — tunggu, cek ulang dengan solusi!).
+
+Batasan
+1 ≤ N ≤ 100.000 (jumlah manuskrip)
+1 ≤ M ≤ 50.000 (jumlah kueri)
+Setiap manuskrip memiliki 1 hingga 20 tag
+Nama tag hanya terdiri dari huruf kecil a–z, panjang ≤ 20 karakter
+ID manuskrip adalah bilangan bulat positif, dijamin unik
+Tag yang tidak ada di arsip → dianggap himpunan kosong

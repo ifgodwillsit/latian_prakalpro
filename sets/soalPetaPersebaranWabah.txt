@@ -1,0 +1,41 @@
+Wabah misterius melanda Kerajaan Nusantera. Tim medis kerajaan mencatat setiap desa yang terjangkit beserta himpunan gejala yang muncul di desa tersebut. Data dikirim dalam format Python literal karena sistem lama kerajaan hanya bisa membaca format tersebut.
+
+Kamu adalah Analis Wabah yang menerima peta berupa dict — kunci adalah nama desa (string), nilai adalah set gejala. Lalu kamu menerima serangkaian kueri berupa tuple berisikan operasi dan argumennya.
+
+Setiap kueri berbentuk tuple ("OP", ...):
+🏘️ ("SAMA", "desaA", "desaB") — gejala yang sama persis di kedua desa (intersection).
+🔗 ("GABUNG", "desaA", "desaB") — semua gejala unik dari dua desa (union).
+🚨 ("UNIK", "desaA", "desaB") — gejala di desaA yang tidak ada di desaB (difference).
+🌡️ ("BEDA", "desaA", "desaB") — gejala yang hanya ada di salah satu desa saja (symmetric diff).
+⚠️ ("BAHAYA", k) — nama desa-desa yang memiliki lebih dari k gejala, diurutkan alfabet.
+🔒 ("SUBWABAH", "desaA", "desaB") — cek apakah semua gejala desaA adalah subset dari desaB (True/False).
+
+Format input
+Baris 1: sebuah dict Python literal — eval(input()) langsung menghasilkan dict[str, set[str]].
+Baris 2: sebuah list of tuple Python literal — eval(input()) menghasilkan list kueri.
+Untuk setiap kueri, cetak satu baris hasil. Himpunan gejala diurutkan alfabet, dipisah koma-spasi, dibungkus {}. Jika kosong cetak {}. Kueri BAHAYA cetak nama desa dipisah koma-spasi; jika kosong cetak -.
+
+Contoh kasus uji:
+Input 
+baris 1 (peta desa)
+{"kotaA": {"demam", "batuk", "sesak"}, "kotaB": {"demam", "mual", "lemas"}, "kotaC": {"batuk", "sesak", "mual", "lemas", "demam"}}
+Input baris 2 (kueri)
+[("SAMA","kotaA","kotaB"), ("GABUNG","kotaA","kotaC"), ("UNIK","kotaC","kotaA"), ("BEDA","kotaA","kotaB"), ("BAHAYA",3), ("SUBWABAH","kotaA","kotaC")]
+
+Output
+{demam}
+{batuk, demam, lemas, mual, sesak}
+{lemas, mual}
+{batuk, lemas, mual, sesak}
+kotaC
+True
+
+Penjelasan: SAMA kotaA∩kotaB = {demam}. GABUNG kotaA∪kotaC = semua 5 gejala. UNIK kotaC−kotaA = {lemas,mual}. BEDA kotaA△kotaB = gejala tidak condong ke dua desa. BAHAYA 3 → hanya kotaC punya 5 gejala (>3). SUBWABAH → {demam,batuk,sesak} ⊆ kotaC? True.
+
+Batasan
+1 ≤ jumlah desa ≤ 1.000
+1 ≤ jumlah gejala per desa ≤ 50
+1 ≤ jumlah kueri ≤ 10.000
+Nama desa dan gejala hanya huruf kecil a–z dan angka, panjang ≤ 20
+Desa yang tidak ada di peta → anggap himpunan kosong
+k pada kueri BAHAYA adalah bilangan bulat non-negatif

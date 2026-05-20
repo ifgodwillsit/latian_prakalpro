@@ -1,0 +1,61 @@
+Kota Sepi punya klub buku yang aktif. Setiap anggota mencatat koleksi buku yang sudah mereka baca. Pengurus klub menerima laporan dan permintaan terus-menerus — termasuk update saat anggota selesai baca buku baru atau menghapus buku dari catatan mereka.
+
+Kueri yang tersedia:
+➕ TAMBAH anggota buku — catat bahwa anggota telah membaca buku (jika sudah ada, abaikan).
+➖ HAPUS anggota buku — hapus buku dari catatan anggota (jika tidak ada, abaikan).
+📖 KOLEKSI anggota — tampilkan semua buku yang sudah dibaca anggota, terurut alfabet.
+🤝 SAMA anggotaA anggotaB — buku apa yang dibaca keduanya?
+🏅 TERBANYAK — anggota dengan koleksi buku terbanyak. Jika seri, cetak semua terurut alfabet.
+🔮 REKOMENDASI anggotaA anggotaB — buku yang sudah dibaca anggotaB tapi belum dibaca anggotaA. Ini adalah rekomendasi untuk anggotaA.
+Hasil daftar buku/anggota: terurut alfabet dipisah spasi, atau KOSONG jika tidak ada.
+
+Format input
+Baris 1: N — jumlah anggota awal.
+
+N baris: nama K buku1 buku2 ... bukuK — nama anggota dan koleksi awalnya.
+
+Baris berikutnya: Q — jumlah kueri.
+
+Q baris: salah satu kueri di atas.
+
+Contoh kasus uji
+Input:
+3
+ara 3 laskar dilan negeri
+bimo 2 laskar hujan
+caca 4 dilan negeri hujan senja
+8
+SAMA ara bimo
+REKOMENDASI ara caca
+TAMBAH ara senja
+KOLEKSI ara
+HAPUS bimo laskar
+TERBANYAK
+SAMA ara caca
+KOLEKSI bimo
+
+Output:
+laskar
+negeri senja
+dilan laskar negeri senja
+caca
+dilan negeri senja
+hujan
+
+Trace: Awal: ara={laskar,dilan,negeri}, bimo={laskar,hujan}, caca={dilan,negeri,hujan,senja}.
+SAMA ara∩bimo = {laskar} ✓
+REKOMENDASI ara←caca = caca−ara = {senja,hujan,negeri}−{...} → {senja,negeri} ✓ (dilan sudah dibaca ara)
+TAMBAH ara senja → ara={laskar,dilan,negeri,senja}
+KOLEKSI ara → 4 buku terurut ✓
+HAPUS bimo laskar → bimo={hujan}
+TERBANYAK → ara=4, caca=4, bimo=1 → seri → "caca ara"? No, alfabet → "ara caca" ✓
+SAMA ara∩caca = {dilan,negeri,senja} ✓
+KOLEKSI bimo = {hujan} ✓
+
+Batasan
+1 ≤ N ≤ 1.000 (anggota awal)
+0 ≤ K ≤ 200 (buku awal per anggota)
+1 ≤ Q ≤ 10.000 (kueri)
+Nama anggota dan judul buku: huruf kecil a–z, panjang ≤ 20
+Anggota baru bisa muncul pertama kali lewat kueri TAMBAH
+Kueri HAPUS/KOLEKSI/SAMA/REKOMENDASI pada anggota yang tidak ada → anggap koleksinya kosong

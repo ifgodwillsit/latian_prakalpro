@@ -1,0 +1,58 @@
+Turnamen coding tahunan diikuti ribuan peserta dari berbagai universitas. Setiap peserta memiliki ID unik, berasal dari satu universitas, dan menguasai beberapa bahasa pemrograman. Panitia menerima berbagai kueri kompleks dari juri dan sponsor.
+
+
+Kueri yang tersedia:
+
+
+🎓 UNIV universitas — tampilkan semua ID peserta dari universitas tersebut, terurut ascending.
+💻 BAHASA lang — tampilkan semua ID peserta yang menguasai bahasa lang, terurut ascending.
+🎯 CARI universitas lang — peserta dari universitas yang juga menguasai bahasa lang (intersection dua index).
+🔥 RIVAL univA univB lang — peserta dari univA yang menguasai lang, MINUS peserta dari univB yang juga menguasai lang. Artinya: peserta univA berkemampuan lang yang tidak punya saingan dari univB.
+🏆 DOMINAN — bahasa pemrograman yang dikuasai oleh peserta dari paling banyak universitas berbeda. Jika seri, cetak semua terurut alfabet.
+🔗 JEMBATAN univA univB — bahasa apa saja yang dikuasai oleh setidaknya satu peserta univA dan setidaknya satu peserta univB sekaligus (bahasa "penghubung" dua universitas).
+
+Output daftar ID: ascending dipisah spasi. Output daftar bahasa/univ: alfabet dipisah spasi. Kosong → KOSONG.
+
+Format input
+Baris 1: N Q — jumlah peserta dan kueri.
+
+N baris: ID universitas lang1 lang2 ... langK
+
+Contoh kasus uji
+Input:
+6 6
+1 ugm python java
+2 its python cpp
+3 ugm cpp rust
+4 ui  java python
+5 its rust java
+6 ui  cpp python
+CARI ugm python
+RIVAL ugm its python
+DOMINAN
+JEMBATAN ugm its
+BAHASA rust
+UNIV ui
+
+Output:
+1
+1
+python
+cpp python rust
+3 5
+4 6
+
+Trace:
+CARI ugm python → ugm={1,3} ∩ python={1,2,4,6} = {1} ✓
+RIVAL ugm its python → (ugm∩python) − (its∩python) = {1} − {2} = {1} ✓
+DOMINAN → python: {ugm,its,ui}=3 univ, java: {ugm,ui,its}=3, cpp: {its,ugm,ui}=3, rust: {ugm,its}=2. Seri 3 univ: python, java, cpp → cetak semua alfabet ✓
+JEMBATAN ugm its → lang ugm: {python,java,cpp,rust}, lang its: {python,cpp,rust,java} → irisan = {python,cpp,rust,java} ✓
+BAHASA rust → {3,5} ✓ · UNIV ui → {4,6} ✓
+
+Batasan
+1 ≤ N ≤ 200.000 (peserta)
+1 ≤ Q ≤ 100.000 (kueri)
+Setiap peserta menguasai 1–10 bahasa
+Jumlah universitas unik ≤ 500, jumlah bahasa unik ≤ 100
+ID peserta bilangan bulat positif, unik
+Universitas/bahasa tidak dikenal → anggap himpunan kosong

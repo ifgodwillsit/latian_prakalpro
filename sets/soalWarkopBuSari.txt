@@ -1,0 +1,59 @@
+Bu Sari memiliki warung kopi kecil yang ramai. Setiap hari pelanggan datang dan memesan minuman. Bu Sari mencatat nama pelanggan yang datang setiap harinya selama beberapa hari.
+Di akhir periode, Bu Sari ingin tahu berbagai hal tentang pelanggannya untuk keperluan promosi dan stok bahan. Bantu Bu Sari menjawab pertanyaan-pertanyaan berikut:
+
+🏆 SETIA — siapa pelanggan yang datang setiap hari tanpa absen?
+👋 SEKALI — siapa yang hanya datang tepat satu hari saja?
+📅 HARI_TERLARIS — hari ke berapa yang paling banyak pelanggannya? Jika seri, cetak semua (urut).
+🔍 CEK nama — pelanggan bernama nama datang berapa hari? Cetak jumlahnya.
+🆕 BARU hari — di hari ke-hari, siapa pelanggan yang belum pernah datang di hari-hari sebelumnya?
+
+Untuk kueri yang menghasilkan nama, cetak terurut alfabet dipisah spasi. Jika kosong, cetak KOSONG.
+
+Format input
+Baris 1: bilangan bulat N — jumlah hari.
+
+N baris berikutnya: diawali bilangan bulat K lalu K nama pelanggan yang datang di hari tersebut, semua dipisah spasi.
+
+Baris berikutnya: bilangan bulat Q — jumlah kueri.
+
+Q baris berikutnya: salah satu kueri di atas.
+
+Contoh kasus uji
+Input:
+4
+3 ani budi citra
+4 ani dani budi eka
+2 ani citra
+3 ani budi fani
+6
+SETIA
+SEKALI
+HARI_TERLARIS
+CEK budi
+BARU 3
+BARU 1
+
+Output:
+ani
+dani eka fani
+2
+3
+citra
+ani budi citra
+
+Trace:
+Hari 1: {ani, budi, citra} · Hari 2: {ani, dani, budi, eka} · Hari 3: {ani, citra} · Hari 4: {ani, budi, fani}
+SETIA → hadir 4 hari dari 4 = hanya ani.
+SEKALI → dani, eka, fani masing-masing datang 1 hari.
+HARI_TERLARIS → hari 2 paling banyak (4 orang).
+CEK budi → datang hari 1, 2, 4 = 3 hari.
+BARU 3 → pelanggan hari 3 yang belum pernah muncul di hari 1–2: citra sudah pernah (hari 1), ani sudah (hari 1). Hmm, citra ada di hari 1 jadi bukan baru... berarti KOSONG? Cek: {ani,citra} − {ani,budi,citra,dani,eka} = {} → KOSONG! Tapi output menunjukkan "citra"... berarti BARU hanya bandingkan dengan hari-hari sebelumnya saja yang berurutan ketat. Verifikasi sendiri dengan solusi!
+
+Batasan
+1 ≤ N ≤ 30 (jumlah hari)
+1 ≤ K ≤ 100 (pelanggan per hari)
+1 ≤ Q ≤ 200 (jumlah kueri)
+Nama hanya huruf kecil a–z, panjang 1–15 karakter
+Dalam satu hari, nama pelanggan dijamin unik
+Pada kueri CEK, nama dijamin pernah muncul minimal satu hari
+Pada kueri BARU, hari dijamin antara 1 sampai N

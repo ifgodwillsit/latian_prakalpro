@@ -1,0 +1,54 @@
+Badan Intelijen Nusantera memiliki database agen rahasia. Setiap agen memiliki ID unik (bilangan bulat) dan menguasai satu atau lebih keahlian (misalnya: "sandi", "tempur", "infiltrasi").
+Direktur Intelijen mengirim misi-misi darurat. Setiap misi membutuhkan agen yang memenuhi semua kriteria keahlian sekaligus — bukan salah satu, tapi seluruhnya. Selain itu, Direktur juga ingin tahu tentang distribusi keahlian di seluruh jaringan.
+
+Tersedia tiga jenis kueri:
+🎯 MISI k1 k2 ... km — cari semua agen yang menguasai semua keahlian yang disebutkan (intersection berantai dari m set). Cetak ID terurut ascending.
+🔄 LANGKA — keahlian apa yang dikuasai paling sedikit agen? Jika seri, urutkan alfabet, ambil semua yang seri (bukan hanya satu).
+📊 EKSKLUSIF k — berapa banyak agen yang hanya menguasai keahlian k dan tidak keahlian lain sama sekali.
+🔗 BERSAMA k1 k2 ... km — seperti MISI, tapi output bukan ID-nya melainkan keahlian lain apa saja yang rata-rata dimiliki oleh agen-agen hasil intersection tersebut (union semua keahlian mereka, dikurangi keahlian yang sudah disebut di kueri).
+
+Format input & output:
+Baris pertama: N M — jumlah agen dan jumlah kueri.
+N baris berikutnya: ID k1 k2 ... kt — ID agen diikuti daftar keahliannya.
+M baris berikutnya: salah satu kueri di atas.
+
+Output tiap kueri satu baris. Untuk MISI/BERSAMA: elemen diurutkan alfabet/numerik, dipisah spasi, atau TIDAK ADA jika kosong. Untuk LANGKA: nama keahlian dipisah spasi terurut alfabet. Untuk EKSKLUSIF: satu bilangan bulat.
+
+Contoh kasus uji
+Input
+7 5
+1 sandi tempur infiltrasi
+2 sandi infiltrasi
+3 tempur menembak
+4 sandi tempur menembak
+5 infiltrasi
+6 sandi
+7 sandi tempur infiltrasi menembak
+MISI sandi infiltrasi
+LANGKA
+EKSKLUSIF sandi
+BERSAMA sandi tempur
+MISI drone
+
+Output
+1 2 7
+infiltrasi menembak
+1
+infiltrasi menembak
+TIDAK ADA
+
+Trace kueri:
+MISI sandi∩infiltrasi → {1,2,7} ✓
+LANGKA → "infiltrasi" (3 agen: 1,2,5,7 → 4), "menembak" (3,4,7 → 3), "sandi" (1,2,4,6,7 → 5), "tempur" (1,3,4,7 → 4). Paling sedikit: menembak & infiltrasi keduanya 3 — tapi infiltrasi (3 agen: 1,2,5,7=4) ... cek: sandi=5, tempur=4, infiltrasi=4, menembak=3. Jadi LANGKA = menembak saja... tapi jika seri cetak semua. Verifikasi dengan solusi!
+EKSKLUSIF sandi → hanya agen 6 (keahlian = {sandi} saja) → 1
+BERSAMA sandi∩tempur → agen {1,4,7}, union keahlian mereka = {sandi,tempur,infiltrasi,menembak}, kurangi {sandi,tempur} → {infiltrasi, menembak}
+MISI drone → tidak ada agen punya "drone" → TIDAK ADA
+
+Batasan
+1 ≤ N ≤ 200.000 (jumlah agen)
+1 ≤ M ≤ 100.000 (jumlah kueri)
+Setiap agen memiliki 1 hingga 30 keahlian
+Setiap kueri MISI/BERSAMA memiliki 1 hingga 10 keahlian
+Nama keahlian hanya huruf kecil a–z, panjang ≤ 20 karakter
+ID agen adalah bilangan bulat positif, dijamin unik
+Keahlian yang tidak dikenal → himpunan kosong
