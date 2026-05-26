@@ -1,0 +1,41 @@
+Di Kerajaan Kata, terdapat sebuah menara berlantai N. Penyihir meletakkan sebuah kata di lantai paling atas. Setiap kali turun satu lantai, kata tersebut mengalami transformasi ajaib secara rekursif:
+
+
+🔡 Jika panjang kata genap — kata dibalik (reverse).
+✂️ Jika panjang kata ganjil — huruf tengah dihapus.
+
+Transformasi terus berlanjut rekursif hingga kata hanya tersisa 1 huruf atau kosong (string "") — itulah base case-nya. Tugas kamu: cetak kata di setiap lantai saat turun, dari lantai N hingga lantai 1.
+
+Format input & output
+Baris 1: bilangan bulat T — jumlah test case.
+
+Tiap test case: satu baris berisi sebuah kata (huruf kecil, panjang 1–20).
+
+Untuk tiap test case, cetak transformasi kata di setiap langkah rekursi, satu per baris, dari kata asli hingga base case.
+
+Contoh kasus uji
+Input
+2
+algoritma
+pagi
+Output
+algoritma
+amtirola
+altirol
+ltrila
+atirl
+lria
+ail
+li
+il
+i
+pagi
+igap
+pgi
+igp
+i
+Trace "pagi" (4 huruf, genap):
+"pagi" → cetak "pagi", panjang 4 (genap) → balik → "igap"
+"igap" → cetak "igap", panjang 4 (genap) → balik → "pagi"... tunggu, ini loop!
+
+Koreksi: transformasi dilakukan pada hasil sebelumnya dan terus berlanjut sampai panjang ≤ 1. Verifikasi trace yang benar dengan source code di bawah!

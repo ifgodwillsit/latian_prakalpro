@@ -1,0 +1,30 @@
+Penjelajah Arga terjebak di dalam labirin berbentuk grid N × M. Setiap sel berisi angka 0 (bisa dilewati) atau 1 (tembok). Arga mulai dari sel (0,0) dan ingin mencapai (N-1, M-1).
+
+
+Arga bisa bergerak ke 4 arah (atas, bawah, kiri, kanan). Ia tidak boleh mengunjungi sel yang sama dua kali dalam satu perjalanan.
+
+
+Bantu Arga dengan menjawab tiga pertanyaan:
+
+
+1️⃣ Apakah ada jalur dari start ke finish? Cetak ADA atau TIDAK ADA.
+2️⃣ Berapa jumlah semua jalur berbeda yang mungkin?
+3️⃣ Cetak jalur dengan langkah terpendek (jika seri, cetak yang paling kecil secara leksikografis berdasarkan urutan arah: Bawah < Kanan < Kiri < Atas). Format jalur: daftar koordinat (r,c) dipisah spasi.
+Format input & output
+Baris 1: N M — ukuran grid.
+
+N baris: M angka (0 atau 1) dipisah spasi.
+
+Output: tiga baris sesuai pertanyaan di atas. Untuk pertanyaan 3, jika tidak ada jalur cetak TIDAK ADA.
+
+Contoh kasus uji
+Input
+3 3
+0 0 0
+0 1 0
+0 0 0
+Output
+ADA
+4
+(0,0) (0,1) (0,2) (1,2) (2,2)
+Trace: Grid 3×3, tengah (1,1) adalah tembok. Ada 4 jalur berbeda yang bisa ditempuh mengelilingi tembok. Jalur terpendek: 5 langkah melalui sisi atas atau sisi bawah. Karena "Bawah < Kanan", jalur via atas (gerak kanan dulu) lebih leksikografis kecil dari jalur via bawah. Verifikasi dengan solusi!

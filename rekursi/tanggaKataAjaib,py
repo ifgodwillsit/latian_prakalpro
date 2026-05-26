@@ -1,0 +1,22 @@
+def transformasi(kata: str, hasil: list) -> None:
+    # Selalu cetak kata saat ini (termasuk base case)
+    hasil.append(kata)
+
+    # Base case: panjang 0 atau 1, berhenti
+    if len(kata) <= 1:
+        return
+
+    # Recursive case
+    if len(kata) % 2 == 0:          # genap → balik
+        transformasi(kata[::-1], hasil)
+    else:                            # ganjil → hapus huruf tengah
+        mid = len(kata) // 2
+        kata_baru = kata[:mid] + kata[mid+1:]
+        transformasi(kata_baru, hasil)
+
+T = int(input())
+for _ in range(T):
+    kata = input().strip()
+    hasil = []
+    transformasi(kata, hasil)
+    print("\n".join(hasil))
